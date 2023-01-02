@@ -12,8 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.controller.dto.MedicoDto;
-import med.voll.api.controller.dto.PutMedicoDto;
+import med.voll.api.controller.dto.form.MedicoDto;
+import med.voll.api.controller.dto.form.PutMedicoDto;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")

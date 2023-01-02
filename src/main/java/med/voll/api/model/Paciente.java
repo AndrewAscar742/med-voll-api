@@ -10,8 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.controller.dto.PacienteDto;
-import med.voll.api.controller.dto.PutPacienteDto;
+import med.voll.api.controller.dto.form.PacienteDto;
+import med.voll.api.controller.dto.form.PutPacienteDto;
 
 @Entity
 @Table(name = "pacientes")

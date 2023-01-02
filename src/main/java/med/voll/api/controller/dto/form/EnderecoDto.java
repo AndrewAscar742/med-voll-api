@@ -1,7 +1,12 @@
-package med.voll.api.controller.dto;
+package med.voll.api.controller.dto.form;
 
 import jakarta.validation.constraints.NotBlank;
 
+/**
+ * @author Sony
+ * 
+ * Usado no verbo PUT para poder realizar a alteração com segurança
+ */
 public record EnderecoDto(
 		@NotBlank
 		String logradouro,
