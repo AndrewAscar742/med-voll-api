@@ -39,6 +39,7 @@ public class SecurityConfiguration {
 	}
 	
 	//A senha vai ser criptografa quando for salvar no banco
+	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}

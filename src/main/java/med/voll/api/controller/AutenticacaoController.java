@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import med.voll.api.controller.dto.form.UsuarioLogin;
+import med.voll.api.model.Usuario;
+import med.voll.api.service.TokenService;
 
 @RestController
 @RequestMapping("/login")
@@ -22,11 +24,15 @@ public class AutenticacaoController {
 	@Autowired
 	private AuthenticationManager manager;
 	
+	@Autowired
+	private TokenService jwtToken;
+	
 	@PostMapping
 	public ResponseEntity<?> efetuarLogin(@RequestBody @Valid UsuarioLogin login){
-		var token = new UsernamePasswordAuthenticationToken(login.login(), login.senha());
-		var authentication = manager.authenticate(token);
+		var dados = new UsernamePasswordAuthenticationToken(login.login(), login.senha());
+		var authentication = manager.authenticate(dados);
+		var token = jwtToken.gerarToken((Usuario) authentication.getPrincipal());
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok(token);
 	}
 }
