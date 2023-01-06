@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import med.voll.api.controller.dto.ReturnToken;
 import med.voll.api.controller.dto.form.UsuarioLogin;
 import med.voll.api.model.Usuario;
 import med.voll.api.service.TokenService;
@@ -33,6 +34,6 @@ public class AutenticacaoController {
 		var authentication = manager.authenticate(dados);
 		var token = jwtToken.gerarToken((Usuario) authentication.getPrincipal());
 		
-		return ResponseEntity.ok(token);
+		return ResponseEntity.ok(new ReturnToken(token));
 	}
 }
